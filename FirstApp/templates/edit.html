@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arbortrary</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            
+            <div class="welcoming">
+                <h1>Arbortrary</h1>
+                <a id="trees" class="btn btn-primary" href="/account">My trees</a>
+                <h1>Welcome {{ new_user.first_name }} !</h1>
+            </div>
+            <nav>
+                <p>A site to track randomly planted trees</p>
+                <div class="plant">
+                    <a class="btn btn-primary" href="/dashboard">Dashboard</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h1>Re-Plant Your Tree </h1>
+            <form action="/edit_tree" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label" for="species">Species</label>
+                    <input class="form-control" type="text" name="species" id="species" value="{{my_tree.species}}">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" value="{{my_tree.location}}">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reason">Reason</label>
+                    <input class="form-control" type="text" name="reason" id="reason" value="{{my_tree.reason}}">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="date_planted">Date Planted</label>
+                    <input class="form-control" type="date" name="date_planted" id="date_planted" value="{{datee}}">
+                </div>
+                <input type="hidden" value="{{my_tree.id}}" name="tree_idh">
+                <button class="btn btn-primary" type="submit">Edit</button>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 0px;
+}
+
+
+
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+.welcoming{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#trees{
+    margin-left: 350px;
+    height: 35px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#my_table{
+    width: 50%;
+}
